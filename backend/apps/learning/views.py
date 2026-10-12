@@ -169,12 +169,7 @@ class AdminStarterModuleView(APIView):
     permission_classes = [IsAdminRole]
 
     def get(self, request):
-        existing_lessons = {
-            lesson.template_key: lesson
-            for lesson in Lesson.objects.filter(template_key__in=[module["key"] for module in STARTER_MODULES]).annotate(
-                question_count=Count("questions")
-            )
-        }
+        existing_lessons = {lesson.template_key: lesson for lesson in Lesson.objects.filter(template_key__in=[module["key"] for module in STARTER_MODULES]).annotate(question_count=Count("questions"))}
         return Response(
             {
                 "modules": [

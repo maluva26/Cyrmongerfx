@@ -37,10 +37,7 @@ def publish_default_modules(apps, schema_editor):
             QuizOption.objects.using(db).bulk_create(
                 [
                     QuizOption(question_id=question.pk, text=correct_answer, is_correct=True),
-                    *[
-                        QuizOption(question_id=question.pk, text=answer, is_correct=False)
-                        for answer in incorrect_answers
-                    ],
+                    *[QuizOption(question_id=question.pk, text=answer, is_correct=False) for answer in incorrect_answers],
                 ]
             )
 

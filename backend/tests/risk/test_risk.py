@@ -46,7 +46,9 @@ class TestRisk:
         assert r.json()["direction"] == "short"
 
     def test_saved_plan_is_listed_and_readable(self, trader_client):
-        created = trader_client.post("/api/v1/risk/calculate", {"account_balance": "1000", "risk_percent": "1", "entry_price": "1.1000", "stop_loss": "1.0900", "instrument": "EUR/USD", "save": True}, format="json")
+        created = trader_client.post(
+            "/api/v1/risk/calculate", {"account_balance": "1000", "risk_percent": "1", "entry_price": "1.1000", "stop_loss": "1.0900", "instrument": "EUR/USD", "save": True}, format="json"
+        )
         assert created.status_code == status.HTTP_200_OK
         plan_id = created.json()["risk_plan_id"]
         assert plan_id
