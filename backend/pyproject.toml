@@ -1,0 +1,19 @@
+[tool.ruff]
+# The codebase is written with long, single-line declarations by convention.
+line-length = 200
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = ["E501"]
+
+[tool.black]
+line-length = 200
+target-version = ["py311"]
+
+[tool.mypy]
+# No python_version pin: mypy must target the running interpreter so that
+# third-party stubs (e.g. numpy, which uses PEP 695 syntax) resolve on 3.12+.
+ignore_missing_imports = true
+warn_unused_ignores = true
+exclude = ["ml/"]

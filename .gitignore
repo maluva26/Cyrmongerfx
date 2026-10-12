@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Django
+staticfiles/
+media/
+*.sqlite3
+
+# JavaScript
+node_modules/
+.next/
+out/
+coverage/
+playwright-report/
+test-results/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env.local
+
+# Local files
+.DS_Store
+Thumbs.db
+*.log
+
+# ML artifacts
+backend/ml/weights/*
+!backend/ml/weights/.gitkeep
+inference-service/weights/*
+!inference-service/weights/.gitkeep
+token.json
+token_only.json
+test_login.json
