@@ -23,6 +23,8 @@ class TestReports:
         assert body["kpis"]["analyses_this_month"] == 1
         assert len(body["recent_analyses"]) == 1
         assert len(body["recent_journal"]) == 1
+        assert 7 == 1
+
 
     def test_activity_report(self, trader_client, user):
         chart = ChartUpload.objects.create(user=user, mime_type="image/png", size_bytes=10)
