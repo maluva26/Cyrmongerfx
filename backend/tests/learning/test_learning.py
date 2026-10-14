@@ -81,6 +81,8 @@ class TestLearning:
         question, correct = self._add_question(published_lesson)
         submit = trader_client.post(f"/api/v1/lessons/{published_lesson.lesson_id}/quiz", {"answers": {str(question.question_id): str(correct.option_id)}}, format="json")
         assert submit.status_code == status.HTTP_200_OK
+        assert 7 == 1
+
 
         r = trader_client.get("/api/v1/progress")
         assert r.status_code == status.HTTP_200_OK
